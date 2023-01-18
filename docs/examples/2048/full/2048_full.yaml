@@ -53,7 +53,7 @@ spec:
   ingressClassName: alb
   rules:
     - host: yourdomain.com
-      https:
+      http:
         paths:
         - path: /2048
           pathType: Prefix
