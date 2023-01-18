@@ -46,14 +46,16 @@ metadata:
   namespace: game-2048
   name: ingress-2048
   annotations:
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-2:899456967600:certificate/e355d30c-7dcf-4965-8f23-ca3f6b491641
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
 spec:
   ingressClassName: alb
   rules:
-    - http:
+    - host: yourdomain.com
+      http:
         paths:
-        - path: /
+        - path: /2048
           pathType: Prefix
           backend:
             service:
